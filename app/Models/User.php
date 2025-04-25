@@ -21,7 +21,7 @@ class User extends Authenticatable
     'name',
     'email',
     'password',
-    'role' // or 'roles' depending on your column name
+    'role_id' // or 'roles' depending on your column name
 ];
 
 
