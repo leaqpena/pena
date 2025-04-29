@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('Congrats! Nakasud naka.') }}
+                    {{ __('Congrats! Nakasud naka. Wowowowowow naay nasunog!') }}
                 </div>
             </div>
         </div>
