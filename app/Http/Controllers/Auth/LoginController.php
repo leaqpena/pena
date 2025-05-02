@@ -1,9 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\Role;
+use App\Http\Middleware\ifadmin;
+use App\Http\Middleware\ifuser;
+
 
 class LoginController extends Controller
 {
@@ -25,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -37,7 +43,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
     }
-    protected function Authenticated(Request $request, $user)
+    protected function authenticated(Request $request, $user)
     {
         if ($user->role === 'admin'){
             return redirect ('/admin/dashboard');
